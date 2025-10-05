@@ -4,6 +4,6 @@
 Каждая директория соответствует отдельному курсу.
 ```
 homework/
-├── Linear algebra and analytic geometry/ # Линейная алгебра и аналитическая геометрия
-└── Programming on Python/ # Программирование на Python
+├── Algebra, geometry and theory of differential equations/ # Алгебра, геометрия и теория дифференциальных уравнений
+└── Programming (Python)/ # Программирование (Python)
 ```
