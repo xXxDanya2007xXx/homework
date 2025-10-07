@@ -9,7 +9,7 @@ def describe_heights(heights, label):
     med = np.median(heights)
     mad = np.median(np.abs(heights - med))
 
-    print(f"\n{label}")
+    print(f"\n{label}:")
     print(f"Средний рост: {mean:.2f} см")
     print(f"Стандартное отклонение: {std:.2f} см")
     print(f"Медиана: {med:.2f} см")

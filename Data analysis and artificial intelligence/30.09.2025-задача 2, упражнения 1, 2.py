@@ -22,13 +22,13 @@ experiment(size=300)
 
 # 1.3
 print("\n=== Стабильность среднего при 100 / 1000 / 10000 измерениях ===")
-for size in [100, 1000, 10_000]:
+for size in [100, 1000, 10000]:
     print(f"Размер выборки: {size}")
     experiment(size)
 
 # 2. Анализ распределения
 print("\n=== Сравнение распределений до и после обрезки ===")
-scores = np.random.normal(loc=85, scale=15, size=10_000)
+scores = np.random.normal(loc=85, scale=15, size=10000)
 
 # До обрезки
 mean_before = scores.mean()
