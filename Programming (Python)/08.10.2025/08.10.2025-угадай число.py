@@ -40,4 +40,5 @@ def guess_number():
     print(f"Вы проиграли. Загаданное число: {guessed}")
 
 
-guess_number()
+if __name__ == "__main__":
+    guess_number()
