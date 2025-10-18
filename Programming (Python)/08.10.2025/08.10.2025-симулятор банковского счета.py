@@ -102,4 +102,5 @@ def main():
             print("Неверный выбор.")
 
 
-main()
+if __name__ == "__main__":
+    main()
