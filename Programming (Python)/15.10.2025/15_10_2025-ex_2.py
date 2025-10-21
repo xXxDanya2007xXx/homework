@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+# Проверяем количество и порядок расставления скобок
 def check_brackets(expression: str):
     stack = []
 
