@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 # def find_digit():
-#     string = input('Введите строку чисел: ')
-#     n = int(input('Введите число N: '))
+#     string = input("Введите строку чисел: ")
+#     n = int(input("Введите число N: "))
 #     print(string[n])
 
 def find_digit(n: int):
@@ -25,9 +25,9 @@ def find_digit(n: int):
 if __name__ == "__main__":
     while True:
         try:
-            n = int(input('Введите число N: '))
+            n = int(input("Введите число N: "))
         except ValueError:
-            print('Err: Введите целое число.')
+            print("Err: Введите целое число.")
             continue
         break
 

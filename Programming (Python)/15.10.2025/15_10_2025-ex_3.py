@@ -4,16 +4,16 @@ def move_char(text: str, X: str):
 
     while True:
         direction = input(
-            'Куда переместить символы (начало/конец)?: ').strip().lower()
-        if direction not in ['начало', 'конец']:
-            print('Err: введите `начало` или `конец`.')
+            "Куда переместить символы (начало/конец)?: ").strip().lower()
+        if direction not in ["начало", "конец"]:
+            print("Err: введите `начало` или `конец`.")
             continue
         break
 
     count = text.count(X)
-    others = text.replace(X, '')
+    others = text.replace(X, "")
 
-    if direction == 'начало':
+    if direction == "начало":
         new_text = X * count + others
     else:
         new_text = others + X * count
@@ -22,7 +22,7 @@ def move_char(text: str, X: str):
 
 
 if __name__ == "__main__":
-    text = input('Введите строку символов: ')
-    X = input('Введите символ X: ')
+    text = input("Введите строку символов: ")
+    X = input("Введите символ X: ")
 
     print(move_char(text, X))
