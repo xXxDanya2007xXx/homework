@@ -5,15 +5,7 @@
 #     n = int(input('Введите число N: '))
 #     print(string[n])
 
-def find_digit():
-    while True:
-        try:
-            n = int(input('Введите число N: '))
-        except ValueError:
-            print('Err: Введите целое число.')
-            continue
-        break
-
+def find_digit(n: int):
     length = 1  # длина числа (1 для 1-9, 2 для 10-99, etc.)
     count = 9   # сколько чисел в группе
     start = 1   # начальное число группы
@@ -31,4 +23,12 @@ def find_digit():
 
 
 if __name__ == "__main__":
-    find_digit()
+    while True:
+        try:
+            n = int(input('Введите число N: '))
+        except ValueError:
+            print('Err: Введите целое число.')
+            continue
+        break
+
+    find_digit(n)
