@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# ОЧЕНЬ_ВАЖНЫЙ_АПДЕЙТ
+# ОЧЕНЬ_ВАЖНЫЙ_АПДЕЙТ_2
 
 import os
 import datetime
