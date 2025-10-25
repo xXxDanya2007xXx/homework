@@ -8,13 +8,12 @@ def check_brackets(expression: str):
             stack.append(ch)
         elif ch == ")":
             if not stack:
-                return False
+                return "Количество и положение скобок некорректны."
             stack.pop()
 
-    if not stack:
-        return "Количество и положение скобок корректны."
-    else:
+    if stack:
         return "Количество и положение скобок некорректны."
+    return "Количество и положение скобок корректны."
 
 
 if __name__ == "__main__":
