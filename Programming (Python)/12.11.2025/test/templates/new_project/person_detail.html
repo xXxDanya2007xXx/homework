@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ person.name }}</title>
+    <style>
+        :root {
+            --bg: #0e0e10;
+            --surface: #1a1a1f;
+            --text: #d7d7d7;
+            --subtle: #9595a3;
+            --accent: #b48ead;
+            --accent-hover: #cba6f7;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: system-ui, sans-serif;
+            background: radial-gradient(circle at 20% 20%, #17171d 0%, #0e0e10 100%);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            animation: fadeIn 0.6s ease-out both;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(1rem); }
+            to   { opacity: 1; transform: none; }
+        }
+
+        header {
+            background: var(--surface);
+            border-bottom: 1px solid #2b2b2b;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+            animation: slideDown 0.6s ease-out;
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-2rem); opacity: 0; }
+            to   { transform: translateY(0); opacity: 1; }
+        }
+        h1 {
+            color: var(--accent);
+            font-size: 1.8rem;
+            letter-spacing: .05em;
+            text-shadow: 0 0 15px rgba(180,142,173,0.4);
+            transition: text-shadow .3s ease;
+        }
+        h1:hover { text-shadow: 0 0 25px rgba(180,142,173,0.9); }
+
+        main {
+            flex: 1;
+            max-width: 720px;
+            width: 90%;
+            margin: 2rem auto;
+            animation: fadeIn .8s ease both;
+        }
+        .info {
+            background: var(--surface);
+            border-radius: 10px;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.6);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+        .info:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(180,142,173,0.3);
+        }
+
+        .section { margin-top: 1.5rem; }
+        .section h2 {
+            color: var(--accent-hover);
+            font-size: 1.1rem;
+            margin-bottom: .5rem;
+            border-bottom: 1px solid #2b2b2b;
+            padding-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+        }
+        p { margin-bottom: .5rem; line-height: 1.5; }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            word-break: break-all;
+            transition: color .15s ease, text-shadow .2s ease;
+        }
+        a:hover {
+            color: var(--accent-hover);
+            text-shadow: 0 0 8px rgba(203,166,247,0.7);
+        }
+
+        ul { padding-left: 1.2rem; list-style: square; }
+        li {
+            margin: .25rem 0;
+            opacity: 0;
+            transform: translateX(-10px);
+            animation: fadeSlide 0.4s ease forwards;
+        }
+        li:nth-child(1){ animation-delay: 0.05s; }
+        li:nth-child(2){ animation-delay: 0.1s; }
+        li:nth-child(3){ animation-delay: 0.15s; }
+
+        @keyframes fadeSlide {
+            to { opacity: 1; transform: none; }
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 1.6rem;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 6px;
+            padding: 0.6rem 1.3rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: .02em;
+            transition: all 0.25s ease;
+        }
+        .back:hover {
+            background: var(--accent);
+            color: var(--bg);
+            box-shadow: 0 0 18px rgba(180,142,173,0.6);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--subtle);
+            font-size: .9rem;
+            padding: 1rem 0 2rem;
+            animation: fadeIn 1s ease both;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{ person.name }}</h1>
+    </header>
+
+    <main>
+        <div class="info">
+            <div class="section">
+                <h2>Основная информация</h2>
+                <p><b>Рост:</b> {{ person.height }} см</p>
+                <p><b>Вес:</b> {{ person.mass }} кг</p>
+                <p><b>Цвет волос:</b> {{ person.hair_color }}</p>
+                <p><b>Цвет кожи:</b> {{ person.skin_color }}</p>
+                <p><b>Цвет глаз:</b> {{ person.eye_color }}</p>
+                <p><b>Год рождения:</b> {{ person.birth_year }}</p>
+                <p><b>Пол:</b> {{ person.gender }}</p>
+            </div>
+
+            <div class="section">
+                <h2>Происхождение</h2>
+                <p><b>Родная планета:</b> {{ person.homeworld_name }}</p>
+            </div>
+
+            {% if person.films_list %}
+            <div class="section">
+                <h2>Фильмы</h2>
+                <ul>
+                    {% for film in person.films_list %}
+                    <li>{{ film }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if person.vehicles_list %}
+            <div class="section">
+                <h2>Транспорт</h2>
+                <ul>
+                    {% for vehicle in person.vehicles_list %}
+                    <li>{{ vehicle }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if person.starships_list %}
+            <div class="section">
+                <h2>Корабли</h2>
+                <ul>
+                    {% for ship in person.starships_list %}
+                    <li>{{ ship }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <a class="back" href="/people/">← К списку персонажей</a>
+        </div>
+    </main>
+
+    <footer>
+        Источник — <a href="https://swapi.dev" target="_blank">SWAPI</a>
+    </footer>
+</body>
+</html>
